@@ -38,7 +38,7 @@ var sendTweet = function(){
     }
   }
 }
-sendTweet(); // Starts the bot
+setInterval(sendTweet(), 1800000); // Send tweet every 30 minutes
 
 // Global variables needed to create the tweet
 var randomWord;
@@ -82,3 +82,9 @@ function capitalizeFirstLetter(string) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+// Keep the Heroku server awake
+var http = require("http");
+setInterval(function() {
+    http.get("http://bogus-definition.herokuapp.com");
+}, 1800000); // Ping server every 30 mins
