@@ -1,1 +1,1 @@
-web: node 004-Node-Twitter-Bot/index.js
+web: node index.js
