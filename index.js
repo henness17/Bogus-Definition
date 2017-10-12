@@ -38,7 +38,12 @@ var sendTweet = function(){
     }
   }
 }
-setInterval(sendTweet, 1800000); // Send tweet every 30 minutes
+ 
+// Send tweet every 28 minutes, and on start
+setInterval(function() {
+  sendTweet();
+}, 1700000);
+sendTweet();
 
 // Global variables needed to create the tweet
 var randomWord;
