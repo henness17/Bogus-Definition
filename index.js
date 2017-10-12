@@ -19,6 +19,11 @@ var bot = new twit({
 })
 ///////////////////////////////////
 
+// Global variables needed to create the tweet
+var randomWord;
+var rhymingWord;
+var rhymingDef;
+
 // Callback chain
 var sendTweet = function(){
   getWord(nowGetRhymingWord);
@@ -41,11 +46,6 @@ setInterval(function() {
   sendTweet();
 }, 1700000);
 sendTweet();
-
-// Global variables needed to create the tweet
-var randomWord;
-var rhymingWord;
-var rhymingDef;
 
 function getWord(callback){
   randomWord = 'http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=' + process.env.WORDNIK_KEY;
